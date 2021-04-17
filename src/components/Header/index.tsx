@@ -6,20 +6,9 @@ import logo from '../../assets/images/logo.svg';
 import { Container, Cart } from './styles';
 import { useCart } from '../../hooks/useCart';
 
-
 const Header = (): JSX.Element => {
   const { cart } = useCart();
-
-  const items: number[] = [];
-
-  const cartSize = cart.reduce((acc, product) => {
-    if (!items[product.id]) {
-      acc++;
-      items[product.id] = 1;
-    }
-
-    return acc;
-  }, 0)
+  const cartSize = cart.length;
 
   return (
     <Container>
